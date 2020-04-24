@@ -5,10 +5,15 @@ module.exports = {
   find,
   findBy,
   findById,
+  findByDepartment
 };
 
 function find() {
   return db("users").select("id", "username");
+}
+
+function findByDepartment(department){
+  return db('users').select('id', 'username', 'department').where({department: department});
 }
 
 function findBy(filter) {
